@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+#blogcard{
+  border: 1px solid black;
+}
+
+#manageposttable{
+  margin: 20px;
+  border-collapse: collapse;
+}
+
+th,td,tr{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.blog-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  word-break: break-word; /* Ensures long words break within the box */
+  overflow-wrap: break-word;
+}
+
+.blog-card:hover {
+  background-color: #faf0ca;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #0d3b66;
+}
+
+.blog-card h3 {
+  font-size: 1em;
+  color: #0d3b66;
+}
+
+.blog-card p {
+  
+  font-size: 0.8em;
+  color: #0d3b66;
+}
+
+.create-post {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title-input {
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.content-input {
+  height: 300px;
+}
+
+.publish-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px; /* Add margin to ensure separation */
+  
+}
+
+.publish-button:hover {
+  background-color: #0056b3;
+}
+
+.blogpost-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.blogpost-container h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.blogpost-container h3 {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.blogpost-container p {
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+.blogpost-container b, .blogpost-container strong {
+  font-weight: bold;
+}
+
+.blogpost-container i, .blogpost-container em {
+  font-style: italic;
+}
+
+.admin-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-color: #f5f5f5;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.admin-login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-login-form input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.admin-login-form button {
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-login-form button:hover {
+  background-color: #0056b3;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px; /* Reduced padding to decrease height */
+  background-color: white;
+  color: #0d3b66;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 30px; /* Reduced height for the logo */
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 1.2em; /* Adjusted font size for company name */
+  font-weight: bold;
+}
+
+.navbar-right {
+  margin-left: auto;
+}
+
+.login-button {
+  color: white;
+  text-decoration: none;
+  background-color: #0d3b66;
+  padding: 5px 15px; /* Adjusted padding for the button */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0d3b66;
+  color: white;
+}
+
