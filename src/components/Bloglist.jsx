@@ -33,10 +33,10 @@ export function Bloglist({bloglist}){
             {bloglist.map(function(list){
                 return <div className="blog-card" key={list.slug}>
                     <Link to={`/blog/${list.slug}`}>
-                      {list.imageUrl && <img src={url+`${list.imageUrl}`} alt={list.title} style={imageStyle}/>}
+                      {list.imageUrl && <img src={list.imageUrl} alt={list.title} style={imageStyle}/>}
                     <h2>{list.title}</h2>
                     <h3>{trimcontent2(list.content)}</h3>
-                    <p>Published on: {list.date}</p>
+                    <p>Published on: {list.date}</p>        
                     </Link>
                     </div>
             })}
