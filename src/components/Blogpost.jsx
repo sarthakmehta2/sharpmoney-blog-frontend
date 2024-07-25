@@ -14,7 +14,7 @@ export function Blogpost({ bloglist }) {
   const url = process.env.NODE_ENV === 'production' ? "https://sharpmoney-backend.onrender.com" : "http://localhost:3002";
 
   const santizedcontent = DOMPurify.sanitize(blog.content);
-  const postUrl = `https://www.sharpmoney.co.in//blog/${blog.slug}`; // Update this to your actual front-end URL
+  const postUrl = `https://www.sharpmoney.co.in/blog/${blog.slug}`; // Update this to your actual front-end URL
 
   const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(postUrl)}`;

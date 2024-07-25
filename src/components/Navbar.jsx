@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 // import sharpmoneylogo_1 from "../assets/sharpmoneylogo_1"
 import logo from "../assets/sharpmoneylogo_1.png"
-import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaLinkedin, FaWhatsapp, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export function Navbar() {
 
     
-  const linkedinShareUrl = `https://www.linkedin.com/sharpmoney`;
+  const linkedinShareUrl = `https://www.linkedin.com/company/sharpmoney/`;
   const whatsappShareUrl = `https://api.whatsapp.com/`;
+  const FacebookShareUrl = `https://www.facebook.com/profile.php?id=61562868398852`;
+  const InstagramShareUrl = `https://www.instagram.com/sharpmoney.co.in?igsh=ZXpvcjBvdXA3eWQx`;
 
     const iconStyle = {
         fontSize: '24px',
@@ -27,9 +29,11 @@ export function Navbar() {
       <div className='navbar-right'>
       <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={iconStyle} /></a>
-            <a href={whatsappShareUrl} target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp style={iconStyle} />
-          </a>
+      <a href={FacebookShareUrl} target="_blank" rel="noopener noreferrer">
+            <FaFacebook style={iconStyle} /></a>
+      <a href={InstagramShareUrl} target="_blank" rel="noopener noreferrer">
+            <FaInstagram style={iconStyle} /></a>
+         
       </div>
     </div>
   );
