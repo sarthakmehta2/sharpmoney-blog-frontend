@@ -14,6 +14,8 @@ import { Navbar } from './components/Navbar'
 function App() {
   const[bloglist, setBloglist] = useState([]);
   const [isAuthenticated, setIsauthenticated] = useState(false);
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   // const url = "http://localhost:3002";
@@ -28,7 +30,13 @@ function App() {
     })
   }, [])
 
-  
+  const handleSearchChange = function(e){
+    setSearchQuery(e.target.value);
+    const filtered = bloglist.filter(item=>
+        item.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setFilteredBlogs(filtered);
+}
 
     const handlelogin = async function(e, username, password){
         e.preventDefault();
@@ -61,22 +69,18 @@ function App() {
         }
     }
 
-
-  
-
   return (
     <>
    
       <Routes>
         
-        <Route path="/" element={<Bloglist bloglist={bloglist} />} />
+        <Route path="/" element={<Bloglist bloglist={bloglist} filteredBlogs={filteredBlogs} searchQuery={searchQuery} onSearchChange={handleSearchChange}/>} />
         <Route path="/blog/:slug" element={<Blogpost bloglist={bloglist} />} />
         <Route path="/adminlogin" element={<Adminlogin onLogin={handlelogin}/>}/>
         <Route path="/admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} element={<Admin bloglist={bloglist} />} />} />
       </Routes>
  
-
-  
+      
 
     </>
   )
