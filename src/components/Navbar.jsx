@@ -24,7 +24,7 @@ export function Navbar({theme, toggleTheme}) {
         <Link to="/"><img src={logo} alt="Logo" className="logo" style={{paddingRight: 0+'px'}} /></Link>
         
         <span className="company-name">Sharpmoney Blogs</span>
-        <button onClick={toggleTheme} className='toggle-container' style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)' }}>
+        <button onClick={toggleTheme} className='toggle-container' style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)', marginRight: '20px' }}>
           {theme === 'light' ? '🌙' : '☀️'}
         </button>
       </div>
