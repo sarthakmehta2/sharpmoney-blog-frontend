@@ -287,8 +287,6 @@ th,td,tr{
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px; /* Reduced padding to decrease height */
-  background-color: white;
-  color: #0d3b66;
   position: sticky;
   top: 0;
   width: 100%;
@@ -315,6 +313,13 @@ th,td,tr{
 
   text-align: center;
   width: 100%; /* Takes the full width to center align */
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px; /* Ensure it has a minimum width */
 }
 
 .navbar-right {
@@ -345,6 +350,11 @@ th,td,tr{
     text-align: left;
     flex-grow: 1;
     width: 100%;
+  }
+
+  .toggle-container {
+    order: 1;
+    margin-left: 10px;
   }
 
   .navbar-right {

@@ -24,12 +24,13 @@ export function Navbar({theme, toggleTheme}) {
         <Link to="/"><img src={logo} alt="Logo" className="logo" style={{paddingRight: 0+'px'}} /></Link>
         
         <span className="company-name">Sharpmoney Blogs</span>
+        <button onClick={toggleTheme} className='toggle-container' style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)' }}>
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
       </div>
 
       <div className='navbar-right' style={{marginTop: 0+'px'}}>
-      <button onClick={toggleTheme} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-color)' }}>
-          {theme === 'light' ? '🌙' : '☀️'}
-        </button>
+
       <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={iconStyle} /></a>
       <a href={FacebookShareUrl} target="_blank" rel="noopener noreferrer">
