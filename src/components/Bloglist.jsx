@@ -44,7 +44,7 @@ export function Bloglist({bloglist, filteredBlogs, searchQuery, onSearchChange, 
 
     return(
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
             <input
           id='searchbar'
           type='text'

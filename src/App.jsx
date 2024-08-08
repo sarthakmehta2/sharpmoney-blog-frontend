@@ -10,8 +10,6 @@ import { Adminlogin } from './components/Adminlogin'
 import {ProtectedRoute} from './components/ProtectedRoute'
 import { Navbar } from './components/Navbar'
 
-
-
 function App() {
   const[bloglist, setBloglist] = useState([]);
   const [isAuthenticated, setIsauthenticated] = useState(false);
@@ -20,6 +18,7 @@ function App() {
   const [taglist, setTaglist] = useState([]);
   const [selectedTag, setSelectedTag] = useState(null);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState('light');
 
   const url = process.env.NODE_ENV === 'production' ? "https://sharpmoney-backend.onrender.com" : "http://localhost:3002";
  
@@ -40,14 +39,23 @@ function App() {
     setFilteredBlogs(filtered);
 }
 
-// const handleTagClick = (tag) => {
-//   if (tag === null) {
-//       setFilteredBlogs([]); // Reset to the full blog list
-//   } else {
-//       const filtered = bloglist.filter(blog => blog.tags.includes(tag));
-//       setFilteredBlogs(filtered);
-//   }
-// };
+const toggleTheme = () => {
+  const newTheme = theme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+  document.documentElement.setAttribute('data-theme', newTheme);
+};
+
+useEffect(() => {
+  // Load theme from local storage or default to light
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}, []);
+
+useEffect(() => {
+  // Save theme to local storage whenever it changes
+  localStorage.setItem('theme', theme);
+}, [theme]);
 
 const handleTagClick = (tag) => {
   if (tag === null) {
@@ -59,7 +67,6 @@ const handleTagClick = (tag) => {
       setFilteredBlogs(filtered);
   }
 };
-
 
     const handlelogin = async function(e, username, password){
         e.preventDefault();
@@ -94,17 +101,18 @@ const handleTagClick = (tag) => {
 
   return (
     <>
-   
-      <Routes>
-        
+    {/* <button onClick={toggleTheme}>
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+      </button> */}
+      {/* Your existing components go here */}
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    
+      <Routes>        
         <Route path="/" element={<Bloglist bloglist={bloglist} filteredBlogs={filteredBlogs} searchQuery={searchQuery} onSearchChange={handleSearchChange} taglist={taglist} onTagClick = {handleTagClick}/>} />
         <Route path="/blog/:slug" element={<Blogpost bloglist={bloglist} />} />
         <Route path="/adminlogin" element={<Adminlogin onLogin={handlelogin}/>}/>
         <Route path="/admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} element={<Admin bloglist={bloglist} />} />} />
       </Routes>
- 
-      
-
     </>
   )
 }

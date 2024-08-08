@@ -37,7 +37,7 @@ const iconStyle = {
 
   return (
     <div>
-    <Navbar2/>
+    {/* <Navbar2/> */}
     <div className='blogpost-container'>
     {blog.imageUrl && <img src={blog.imageUrl} alt={blog.title} style={imageStyle}/>}<br></br>
     <div className="share-icons">
