@@ -51,6 +51,7 @@ const iconStyle = {
         
       <h1>{blog.title}</h1>
       <p><i>Published on: {blog.date}</i></p>
+      <p><b>Tags:</b> {blog.tagsblogs}</p>
       <div dangerouslySetInnerHTML={{__html: santizedcontent}}/>
       <div className="share-icons">
           <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
