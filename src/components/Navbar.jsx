@@ -19,14 +19,14 @@ export function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="navbar-left">
+      <div className="navbar-left" style={{marginBottom: 0+'px'}}>
         
         <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
         
         <span className="company-name">Sharpmoney Blogs</span>
       </div>
 
-      <div className='navbar-right'>
+      <div className='navbar-right' style={{marginTop: 0+'px'}}>
       <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={iconStyle} /></a>
       <a href={FacebookShareUrl} target="_blank" rel="noopener noreferrer">
