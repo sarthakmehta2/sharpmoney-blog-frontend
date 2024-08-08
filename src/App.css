@@ -234,11 +234,13 @@ th,td,tr{
   top: 0;
   width: 100%;
   z-index: 1000;
+  flex-wrap: wrap; /* Allow wrapping of items */
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
+  margin-right: auto; /* Pushes the logo to the left */
 }
 
 .logo {
@@ -249,6 +251,9 @@ th,td,tr{
 .company-name {
   font-size: 1.2em; /* Adjusted font size for company name */
   font-weight: bold;
+
+  text-align: center;
+  width: 100%; /* Takes the full width to center align */
 }
 
 .navbar-right {
@@ -256,16 +261,48 @@ th,td,tr{
   display: flex;
   align-items: center;
   gap: 10px; /* Space between icons */
-  margin-left: auto;
+  
 }
 
-/* Media query for screens smaller than 600px (adjust as needed) */
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .company-name {
+    font-size: 1em;
+    text-align: left;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .navbar-right {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+    width: 100%;
+    order: 2;
+  }
+}
+
+/* Media query for screens smaller than 600px (adjust as needed)
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
     align-items: center;
     padding: 10px; /* Adjusted padding for mobile */
-  }
+  
 
   .navbar-left {
     margin-bottom: 10px; /* Space between logo and company name */
@@ -279,8 +316,8 @@ th,td,tr{
     margin-left: 0;
     margin-top: 10px; /* Space above social media icons */
     gap: 8px; /* Reduced space between icons */
-  }
-}
+  } */
+
 
 .login-button {
   color: white;
