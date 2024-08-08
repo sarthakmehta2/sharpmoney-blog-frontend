@@ -7,6 +7,7 @@ export function Createpost(){
     const[title, setTitle] = useState("");
     const[content, setContent] = useState("");
     const[image, setImage] = useState(null);
+    const[tags, setTags] = useState("");
 
     const url = process.env.NODE_ENV === 'production' ? "https://sharpmoney-backend.onrender.com" : "http://localhost:3002";
 
@@ -22,6 +23,7 @@ export function Createpost(){
         formData.append("content", content);
         formData.append("slug", slug);
         formData.append("image", image);
+        formData.append("tags",tags);
 
         fetch(url+"/create",{
             method: "POST",
@@ -49,6 +51,11 @@ export function Createpost(){
                 setTitle(value);
             }}></input>
 
+            <input type="text" placeholder="tags comma separated please" className="title-input" onChange={(e)=>{
+                const value = e.target.value;
+                setTags(value);
+            }}></input> 
+
                 <ReactQuill
                         value={content}
                         onChange={setContent}
@@ -56,7 +63,7 @@ export function Createpost(){
                         className="content-input"
                     />
 
-            <button className="publish-button" onClick={handlepublish}>Publish</button>
+            <button className="publish-button"onClick={handlepublish}>Publish</button>
         </div>
     )
 }

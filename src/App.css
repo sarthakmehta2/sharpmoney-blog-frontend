@@ -296,3 +296,36 @@ th,td,tr{
   color: white;
 }
 
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #f0f0f0; /* Default background color */
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid #ccc;
+}
+
+.tag.selected {
+  background-color: #007bff; /* Background color when selected */
+  color: #fff;
+  border-color: #007bff;
+}
+
+.clear-filters {
+  margin: 10px 5px;
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.clear-filters:hover {
+  background-color: #d0d0d0;
+}

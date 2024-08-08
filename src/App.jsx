@@ -11,15 +11,16 @@ import {ProtectedRoute} from './components/ProtectedRoute'
 import { Navbar } from './components/Navbar'
 
 
+
 function App() {
   const[bloglist, setBloglist] = useState([]);
   const [isAuthenticated, setIsauthenticated] = useState(false);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [taglist, setTaglist] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(null);
   const navigate = useNavigate();
 
-  // const url = "http://localhost:3002";
-  // const url = "https://sharpmoney-backend.onrender.com";
   const url = process.env.NODE_ENV === 'production' ? "https://sharpmoney-backend.onrender.com" : "http://localhost:3002";
  
   useEffect(()=>{
@@ -27,6 +28,7 @@ function App() {
     .then(async function(res){
       const json = await res.json();
       setBloglist(json.list);
+      setTaglist(json.tags)
     })
   }, [])
 
@@ -37,6 +39,27 @@ function App() {
     );
     setFilteredBlogs(filtered);
 }
+
+// const handleTagClick = (tag) => {
+//   if (tag === null) {
+//       setFilteredBlogs([]); // Reset to the full blog list
+//   } else {
+//       const filtered = bloglist.filter(blog => blog.tags.includes(tag));
+//       setFilteredBlogs(filtered);
+//   }
+// };
+
+const handleTagClick = (tag) => {
+  if (tag === null) {
+      setFilteredBlogs([]); // Reset to the full blog list
+  } else if (filteredBlogs.length > 0 && filteredBlogs.some(blog => blog.tags.includes(tag))) {
+      setFilteredBlogs([]); // Deselect the tag and reset to the full blog list
+  } else {
+      const filtered = bloglist.filter(blog => blog.tags.includes(tag));
+      setFilteredBlogs(filtered);
+  }
+};
+
 
     const handlelogin = async function(e, username, password){
         e.preventDefault();
@@ -74,7 +97,7 @@ function App() {
    
       <Routes>
         
-        <Route path="/" element={<Bloglist bloglist={bloglist} filteredBlogs={filteredBlogs} searchQuery={searchQuery} onSearchChange={handleSearchChange}/>} />
+        <Route path="/" element={<Bloglist bloglist={bloglist} filteredBlogs={filteredBlogs} searchQuery={searchQuery} onSearchChange={handleSearchChange} taglist={taglist} onTagClick = {handleTagClick}/>} />
         <Route path="/blog/:slug" element={<Blogpost bloglist={bloglist} />} />
         <Route path="/adminlogin" element={<Adminlogin onLogin={handlelogin}/>}/>
         <Route path="/admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} element={<Admin bloglist={bloglist} />} />} />
