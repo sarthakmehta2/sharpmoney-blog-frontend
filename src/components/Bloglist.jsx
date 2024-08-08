@@ -45,7 +45,7 @@ export function Bloglist({bloglist, filteredBlogs, searchQuery, onSearchChange})
           placeholder='Search blog title...'
           value={searchQuery}
           onChange={onSearchChange}
-          style={{ margin: '20px', padding: '10px', width: '80%' }}>
+          style={{ margin: '20px', padding: '10px', width: '80%', textAlign: 'center' }}>
 
           </input>
 

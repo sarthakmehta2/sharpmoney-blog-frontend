@@ -21,7 +21,7 @@ export function Navbar() {
     <div className="navbar">
       <div className="navbar-left" style={{marginBottom: 0+'px'}}>
         
-        <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
+        <Link to="/"><img src={logo} alt="Logo" className="logo" style={{paddingRight: 0+'px'}} /></Link>
         
         <span className="company-name">Sharpmoney Blogs</span>
       </div>
