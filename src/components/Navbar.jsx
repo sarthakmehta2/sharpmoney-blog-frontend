@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
-// import sharpmoneylogo_1 from "../assets/sharpmoneylogo_1"
 import logo from "../assets/logo.png"
 import { FaLinkedin, FaWhatsapp, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export function Navbar({theme, toggleTheme}) {
 
-    
   const linkedinShareUrl = `https://www.linkedin.com/company/sharpmoney/`;
   const whatsappShareUrl = `https://api.whatsapp.com/`;
   const FacebookShareUrl = `https://www.facebook.com/profile.php?id=61562868398852`;
@@ -30,6 +28,7 @@ export function Navbar({theme, toggleTheme}) {
       </div>
 
       <div className='navbar-right' style={{marginTop: 0+'px'}}>
+        <p>Follow Us:</p>
 
       <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={iconStyle} /></a>

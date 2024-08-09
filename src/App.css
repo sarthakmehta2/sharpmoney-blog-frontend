@@ -204,6 +204,57 @@ th,td,tr{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.blogpost-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.share-icons, .audio-control {
+  display: flex;
+  align-items: center;
+}
+
+.share-icons p, .audio-control p {
+  margin: 0;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+.audio-button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: var(--icon-color);
+}
+
+.audio-button:hover {
+  color: var(--icon-hover-color);
+}
+
+.audio-on {
+  color: var(--icon-on-color);
+}
+
+.audio-off {
+  color: var(--icon-off-color);
+}
+
+/* Additional styles to ensure the flex layout works well on smaller screens */
+@media (max-width: 600px) {
+  .blogpost-actions {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .share-icons, .audio-control {
+      margin-bottom: 10px;
+  }
+}
+
 .blogpost-container h1 {
   font-size: 2em;
   margin-bottom: 10px;
@@ -459,4 +510,23 @@ input#searchbar::placeholder {
 input#searchbar:focus {
   outline: none;
   border-color: var(--text-color);
+}
+
+.audio-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  padding: 10px;
+}
+
+/* Styles when audio is on */
+.audio-on {
+  color: #00cc44; /* Green for 'on' */
+}
+
+/* Styles when audio is off */
+.audio-off {
+  color: #cc0000; /* Red for 'off' */
 }
